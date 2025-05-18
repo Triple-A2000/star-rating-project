@@ -2,8 +2,13 @@ import { useState } from 'react';
 import Star from './Star';
 
 
-function StarRating() {
+function StarRating({ onRatingChange = () => {} }) {
     const [selectedStars, setSelectedStars] = useState(0);
+
+    const handleClick = (stars) => {
+        setSelectedStars(stars);
+        onRatingChange(stars);
+    };
 
     return (
         <div className="star-rating">
@@ -11,7 +16,7 @@ function StarRating() {
                 <Star
                     key={index}
                     selected={index < selectedStars}
-                    onClick={() => setSelectedStars(index + 1)}
+                    onClick={() => handleClick(index + 1)}
                 />
             ))}
         </div>
