@@ -1,12 +1,13 @@
-import StarRating from './components/StarRating';
 import StarRatingText from './components/StarRatingText';
+import Dialog from './components/Dialog';
 
 function App() {
   return (
     <>
-      <h1>Star Rating</h1>
-      <StarRating />
-      <StarRatingText />
+      <div className="centered">
+        <StarRatingText />
+      </div>
+      <Dialog />
     </>
   );
 }

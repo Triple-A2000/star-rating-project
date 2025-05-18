@@ -18,8 +18,8 @@ function StarRatingText() {
 
     return (
         <div className="star-rating-text">
-            <StarRating onRateChange={setSelectedStars} />
-            <p style={{ marginTop: "10px", fontSize: "18px" }}>
+            <StarRating onRatingChange={setSelectedStars} />
+            <p style={{ marginTop: "10px", fontSize: "18px", color: "white" }}>
                 {getRatingText(selectedStars)}
             </p>
         </div>

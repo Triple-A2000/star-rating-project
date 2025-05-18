@@ -1,23 +1,38 @@
 import { useState } from 'react';
 
 function Dialog() {
+    const [isOpen, setIsOpen] = useState(false);
 
-    const [count, setCounter] = useState(0);
-
-    const reset = () => {
-        if (count > 0) setCounter(0);
-    }
+    const toggleDialog = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
-        <div className="counter">
-            <input 
-                type="button" 
-                className="dialog" 
-                value="Dialog"
-                onClick={Dialog}
-            />
-        </div>
-    )
+        <>
+            <button 
+                className="openDialog" 
+                onClick={toggleDialog}
+            >
+                {isOpen ? "Close Dialog" : "Open Dialog"}
+            </button>
+
+            {isOpen && (
+                <div className="dialog">
+                    <h2>Star Rating Project</h2>
+                    <h3>
+                        "This project is a simple and interactive 
+                        star rating system built with React. 
+                        It allows users to rate content on a scale 
+                        of 1 to 5, displaying a corresponding text 
+                        description from 'Bad' to 'Very Good.' 
+                        The interface also features a dialog 
+                        component that provides feedback or messages 
+                        to the user in a clean and responsive layout."
+                    </h3>
+                </div>
+            )}
+        </>
+    );
 }
 
 export default Dialog;
